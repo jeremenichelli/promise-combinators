@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const PromiseSelector = ({ options, value, onChange }) => (
   <>
-    <h3>Select a combinator</h3>
+    <h2>Select a combinator</h2>
     <select value={value} onChange={(e) => onChange(e.target.value)}>
       <option disabled value="">
         ...

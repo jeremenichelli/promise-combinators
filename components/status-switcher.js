@@ -11,11 +11,15 @@ function getNewStatuses(statuses, checked, index) {
 const StatusSwitcher = ({ statuses, onChange }) => (
   <div className="status-switcher">
     <style jsx>{`
-      label {
+      .status-switcher--label {
         cursor: pointer;
       }
+
+      .status-switcher--checkbox {
+        display: none;
+      }
     `}</style>
-    <h3>Change the result of the async methods</h3>
+    <h2>Change the result of the async methods</h2>
     <p>
       Click the promises below to change their resolutions and test the
       combinator.{' '}

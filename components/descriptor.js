@@ -8,7 +8,7 @@ const Descriptor = ({ method }) => {
           It fulfills when all the promises are resolved succesfully and jumps
           to <code>catch</code> when any of the promises is rejected,{' '}
           <code>then</code> receives an array with the results and{' '}
-          <code>catch</code> the reason why a promise failed.
+          <code>catch</code> the reason why a promise failed.{' '}
           <em>Use it when you need all promises to pass</em>.
         </p>
       )
@@ -19,7 +19,7 @@ const Descriptor = ({ method }) => {
           It resolves when the first promise of the collection comes back,
           whether that one is resolved successfully or not, <code>then</code>{' '}
           receives the result of the first promise and <code>catch</code> the
-          reason why the first promise failed.
+          reason why the first promise failed.{' '}
           <em>Great for time thresholds or other async interruptions</em>.
         </p>
       )

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const ConsoleOutput = ({ kind, content }) => (
   <>
-    <h3>Console Output</h3>
+    <h2>Console Output</h2>
     <pre className={`console console--${kind}`}>{content}</pre>
   </>
 )
