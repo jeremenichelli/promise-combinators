@@ -1,0 +1,54 @@
+{
+  "name": "promise-combinators",
+  "version": "1.0.0",
+  "description": "Project to learn and explore Promise combinators",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0",
+    "start": "next",
+    "build": "next build",
+    "serve": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremenichelli/promise-combinators.git"
+  },
+  "keywords": [
+    "promise",
+    "combinators",
+    "all",
+    "race",
+    "any",
+    "allSettled"
+  ],
+  "author": "Jeremias Menichelli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeremenichelli/promise-combinators/issues"
+  },
+  "homepage": "https://github.com/jeremenichelli/promise-combinators#readme",
+  "dependencies": {
+    "next": "^8.1.0",
+    "promise-any": "^0.2.0",
+    "promise.allsettled": "^1.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "lint-staged": {
+    "./**/*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn test"
+    }
+  },
+  "devDependencies": {
+    "husky": "^3.0.0",
+    "lint-staged": "^9.1.0",
+    "prettier": "^1.18.2"
+  }
+}
