@@ -6,7 +6,7 @@ const PromiseSelector = ({ options, value, onChange }) => (
     <h3>Select a combinator</h3>
     <select value={value} onChange={(e) => onChange(e.target.value)}>
       <option disabled value="">
-        Select a Promise combinator
+        ...
       </option>
       {options.map((o, i) => (
         <option key={i} value={o}>

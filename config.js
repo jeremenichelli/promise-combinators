@@ -104,30 +104,29 @@ export default {
   any: {
     collection: [
       {
-        label: 'findOranges',
+        label: 'findPastaInMenu',
         resolution: 'rejected',
-        reason: '🍊',
-        result: '🍊'
+        reason: '🍝',
+        result: '🍝'
       },
       {
-        label: 'findAvocados',
+        label: 'findPancakesInMenu',
         resolution: 'fulfilled',
-        reason: '🥑',
-        result: '🥑'
+        reason: '🥞',
+        result: '🥞'
       },
       {
-        label: 'findBananas',
+        label: 'findRiceInMenu',
         resolution: 'rejected',
-        reason: '🍌',
-        result: '🍌'
+        reason: '🍛',
+        result: '🍛'
       }
     ],
     thenStatements: [
-      `firstFruit => console.log('We found ' + firstFruit + ' and we stopped!')`
+      `firstMeal => console.log('We found ' + firstMeal + ' and we stopped!')`
     ],
-    catchStatement: `allMissingFruits => console.log(\`We couldn't find any \` + allMissingFruits)`,
-    thenMethod: (firstFruit) => 'We found ' + firstFruit + ' and we stopped!',
-    catchMethod: (allMissingFruits) =>
-      `We couldn't find any ` + allMissingFruits
+    catchStatement: `allMissingMeals => console.log(\`We couldn't find meal \` + allMissingMeals)`,
+    thenMethod: (firstMeal) => 'We found ' + firstMeal + ' and we stopped!',
+    catchMethod: (allMissingMeals) => `We couldn't find any ` + allMissingMeals
   }
 }

@@ -10,7 +10,20 @@ function getNewStatuses(statuses, checked, index) {
 
 const StatusSwitcher = ({ statuses, onChange }) => (
   <div className="status-switcher">
+    <style jsx>{`
+      label {
+        cursor: pointer;
+      }
+    `}</style>
     <h3>Change the result of the async methods</h3>
+    <p>
+      Click the promises below to change their resolutions and test the
+      combinator.{' '}
+      <em>
+        Each promise will resolve in a randomized time with the selected result
+      </em>
+      .
+    </p>
     {statuses.map((s, i) => (
       <div className="status-switcher--group" key={i}>
         <label className="status-switcher--label">

@@ -3,6 +3,7 @@ import PromiseCollection from './promise-collection'
 import PromiseSelector from './promise-selector'
 import StatusSwitcher from './status-switcher'
 import ConsoleOutput from './console-output'
+import Descriptor from './descriptor'
 
 import config from '../config.js'
 
@@ -68,35 +69,36 @@ class Playground extends Component {
           options={Object.keys(config)}
         />
         {methodValue && (
-          <StatusSwitcher
-            statuses={statusCollection}
-            onChange={this.updateStatuses}
-          />
-        )}
-        <button onClick={this.handleStart}>Run</button>
-        {methodValue && (
-          <PromiseCollection
-            ref={this.collectionRef}
-            promiseMethod={methodValue}
-            collection={buildCollection(
-              promiseDescriptor.collection,
-              statusCollection
-            )}
-            thenStatements={promiseDescriptor.thenStatements}
-            catchStatement={promiseDescriptor.catchStatement}
-            thenMethod={(r) =>
-              this.setState({ consoleContent: promiseDescriptor.thenMethod(r) })
-            }
-            catchMethod={(r) =>
-              this.setState({
-                consoleContent: promiseDescriptor.catchMethod(r),
-                consoleKind: 'error'
-              })
-            }
-          />
-        )}
-        {methodValue && (
-          <ConsoleOutput kind={consoleKind} content={consoleContent} />
+          <>
+            <Descriptor method={methodValue} />
+            <StatusSwitcher
+              statuses={statusCollection}
+              onChange={this.updateStatuses}
+            />
+            <button onClick={this.handleStart}>Run</button>
+            <PromiseCollection
+              ref={this.collectionRef}
+              promiseMethod={methodValue}
+              collection={buildCollection(
+                promiseDescriptor.collection,
+                statusCollection
+              )}
+              thenStatements={promiseDescriptor.thenStatements}
+              catchStatement={promiseDescriptor.catchStatement}
+              thenMethod={(r) =>
+                this.setState({
+                  consoleContent: promiseDescriptor.thenMethod(r)
+                })
+              }
+              catchMethod={(r) =>
+                this.setState({
+                  consoleContent: promiseDescriptor.catchMethod(r),
+                  consoleKind: 'error'
+                })
+              }
+            />
+            <ConsoleOutput kind={consoleKind} content={consoleContent} />
+          </>
         )}
       </>
     )
