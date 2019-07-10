@@ -16,7 +16,7 @@ const Descriptor = ({ method }) => {
     case 'all': {
       return (
         <DescriptorContent method={method}>
-          it fulfills when all the promises are resolved succesfully and jumps
+          it fulfills when all the promises are resolved successfully and jumps
           to <code>catch</code> when any of the promises is rejected,{' '}
           <code>then</code> receives an array with the results and{' '}
           <code>catch</code> the reason why a promise failed.{' '}
@@ -39,11 +39,11 @@ const Descriptor = ({ method }) => {
       return (
         <DescriptorContent method={method}>
           it settles when all promises have been resolved, whether they were
-          successful or not, <code>then</code> receives an array containing
-          whther the result or the reason why the promise failed.{' '}
+          successful or not, <code>then</code> receives an array containing the
+          result or the reason why the promise failed.{' '}
           <em>
             Recommended to react to a group of async methods, independently of
-            the results like removing spinners or apply granular actions to
+            the results like removing spinners or applying specific actions to
             concurrent data fetching
           </em>
           .
@@ -57,10 +57,10 @@ const Descriptor = ({ method }) => {
           failed. The main difference with <code>race</code> is it doesn't jumps
           to <code>catch</code> when a promise fails but waits for the rest,{' '}
           <code>then</code> receives the result of the first promise and{' '}
-          <code>catch</code> an array of reasons why each promise fail.{' '}
+          <code>catch</code> an array of reasons why each promise failed.{' '}
           <em>
             Recommended when one async resolution is sufficient but the failure
-            of the whole collection needs a folloqing action
+            of the whole collection needs a following action
           </em>
           .
         </DescriptorContent>

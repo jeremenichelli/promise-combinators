@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 const ConsoleOutput = ({ kind, content }) => {
   const entries = Array.isArray(content) ? content : [content]
+
   return (
     <div className="console">
       <style jsx>{`
