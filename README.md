@@ -8,7 +8,9 @@ _Heavily inspired by [Sara Drasner's Array Explorer](//github.com/sdras/array-ex
 
 ## About the project
 
-This site was built using [Next.js](//nextjs.org/), [styled-jsx](//github.com/zeit/styled-jsx) and lots of bad code, but hey, it works! It's also hosted by [Netlify](//netlify.com) cause I have 99 problems in ym life but deployments ain't one.
+This site was built using [Next.js](//nextjs.org/), [styled-jsx](//github.com/zeit/styled-jsx) and lots of bad code, but hey, it works!
+
+Hosted by [Netlify](//netlify.com) cause I have 99 problems in my life but deployments ain't one.
 
 ## About the combinators
 
