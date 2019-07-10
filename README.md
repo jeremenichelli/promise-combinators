@@ -14,6 +14,8 @@ Hosted by [Netlify](//netlify.com) cause I have 99 problems in my life but deplo
 
 ## About the combinators
 
-Initially `Promise` was released with `all` and `race`, but there's a proposal for two new folks, `allSettled` and `any`, I hope this little microsite helps you exploring and understanding them better.
+Initially `Promise` was released with `all` and `race`, but there's a proposal for two new folks, `allSettled` and `any`.
 
-Read more about the new _promise combinators_ in this article.
+I hope this little microsite helps you exploring and understanding them better.
+
+_Read more about the new promise combinators in this article._
