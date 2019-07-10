@@ -7,7 +7,7 @@ const DescriptorContent = ({ method, children }) => (
         color: #4242ef;
       }
     `}</style>
-    <strong className="method-name">{method}</strong>, {children}
+    <strong className="method-name">{method}</strong> 👉 {children}
   </p>
 )
 

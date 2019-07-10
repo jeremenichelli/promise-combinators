@@ -124,7 +124,7 @@ export default {
     thenStatements: [
       `firstMeal => console.log('We found ' + firstMeal + ' and we stopped!')`
     ],
-    catchStatement: `allMissingMeals => console.log(\`We couldn't find meal \` + allMissingMeals)`,
+    catchStatement: `allMissingMeals => console.log(\`We couldn't find any \` + allMissingMeals)`,
     thenMethod: (firstMeal) => 'We found ' + firstMeal + ' and we stopped!',
     catchMethod: (allMissingMeals) => `We couldn't find any ` + allMissingMeals
   }

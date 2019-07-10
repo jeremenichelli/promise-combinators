@@ -85,7 +85,7 @@ class Playground extends Component {
             cursor: pointer;
             font-size: 15px;
             font-weight: 500;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.07em;
             margin: 1em 0 0;
             min-width: 7em;
             padding: 1em;
