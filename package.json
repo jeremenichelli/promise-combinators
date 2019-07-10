@@ -34,7 +34,8 @@
     "promise.allsettled": "^1.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-github-corner": "^2.3.0"
   },
   "lint-staged": {
     "./**/*.js": [

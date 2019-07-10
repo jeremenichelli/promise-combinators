@@ -6,6 +6,7 @@ import config from '../config'
 import allSettled from 'promise.allsettled'
 import promiseAny from 'promise-any'
 import PromiseSelector from '../components/promise-selector'
+import GitHubCorner from 'react-github-corner'
 
 // shim new methods!
 allSettled.shim()
@@ -62,6 +63,10 @@ export default () => {
         padding: .75rem 1rem;
       }
     `}</style>
+      <GitHubCorner
+        href="//github.com/jeremenichelli/promise-combinators"
+        bannerColor="#4242ef"
+      />
       <h1>Promise combinators</h1>
       <p className="excerpt">
         Created by <a href="//jeremenichelli.io">Jeremias Menichelli</a>.
