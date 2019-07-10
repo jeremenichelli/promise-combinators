@@ -1,6 +1,6 @@
 # Promise combinators
 
-[//promise-combinators.netlify.com/](//promise-combinators.netlify.com/)
+[promise-combinators.netlify.com](//promise-combinators.netlify.com/)
 
 Playground to explore how Promise combinators work.
 
