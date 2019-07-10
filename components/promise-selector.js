@@ -2,9 +2,29 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const PromiseSelector = ({ options, value, onChange }) => (
-  <>
-    <h2>Select a combinator</h2>
-    <select value={value} onChange={(e) => onChange(e.target.value)}>
+  <div className="promise-selector">
+    <style jsx>{`
+      .promise-selector--label {
+        font-weight: bold;
+        margin 0 0.5em 0 0;
+      }
+
+      .promise-selector--dropdown {
+        font-size: 14px;
+      }
+    `}</style>
+    <label
+      htmlFor="promise-selector--dropdown"
+      className="promise-selector--label"
+    >
+      Select a combinator
+    </label>
+    <select
+      id="promise-selector--dropdown"
+      className="promise-selector--dropdown"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    >
       <option disabled value="">
         ...
       </option>
@@ -14,7 +34,7 @@ const PromiseSelector = ({ options, value, onChange }) => (
         </option>
       ))}
     </select>
-  </>
+  </div>
 )
 
 PromiseSelector.propTypes = {

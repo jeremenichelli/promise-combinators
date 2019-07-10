@@ -26,7 +26,6 @@ class PromiseCollection extends Component {
 
     return (
       <>
-        <h2>The code</h2>
         <pre className="promise--collection">
           <code>{`Promise.${promiseMethod}([\n`}</code>
           {collection.map((s, i) => (

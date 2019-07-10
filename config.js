@@ -96,8 +96,7 @@ export default {
         .filter((p) => p.status === 'fulfilled')
         .map((f) => 'We found ' + f.value)
 
-      const all = [...rejected, ...fulfilled]
-      return all.join('\n')
+      return [...rejected, ...fulfilled]
     },
     catchMethod: (reason) => console.error(reason)
   },

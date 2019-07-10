@@ -1,6 +1,5 @@
 import React, { Component, createRef } from 'react'
 import PromiseCollection from './promise-collection'
-import PromiseSelector from './promise-selector'
 import StatusSwitcher from './status-switcher'
 import ConsoleOutput from './console-output'
 import Descriptor from './descriptor'
@@ -21,7 +20,7 @@ class Playground extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      methodValue: '',
+      method: '',
       consoleContent: '',
       consoleKind: 'log',
       statusCollection: []
@@ -31,21 +30,26 @@ class Playground extends Component {
   }
 
   handleStart = () => {
-    this.cleanConsole()
-    this.collectionRef.current.start()
+    this.setState({ consoleContent: '', consoleKind: 'log' }, () =>
+      this.collectionRef.current.start()
+    )
   }
 
-  handleMethodChange = (methodValue) => {
-    const statusCollection = config[methodValue].collection.map((p) => {
-      return { status: p.resolution, label: p.result }
-    })
+  static getDerivedStateFromProps(props, state) {
+    if (props.method !== state.method && config[props.method]) {
+      const statusCollection = config[props.method].collection.map((p) => {
+        return { status: p.resolution, label: p.result }
+      })
 
-    this.cleanConsole()
-    this.setState({ methodValue, statusCollection })
-  }
+      return {
+        method: props.method,
+        statusCollection,
+        consoleContent: '',
+        consoleKind: 'log'
+      }
+    }
 
-  cleanConsole = () => {
-    this.setState({ consoleContent: '', consoleKind: 'log' })
+    return null
   }
 
   updateStatuses = (statusCollection) => {
@@ -53,54 +57,93 @@ class Playground extends Component {
   }
 
   render() {
-    const {
-      methodValue,
-      consoleContent,
-      consoleKind,
-      statusCollection
-    } = this.state
-    const promiseDescriptor = config[methodValue]
+    const { method, consoleContent, consoleKind, statusCollection } = this.state
+    const promiseDescriptor = config[method]
 
     return (
-      <>
-        <PromiseSelector
-          onChange={this.handleMethodChange}
-          value={methodValue}
-          options={Object.keys(config)}
-        />
-        {methodValue && (
-          <>
-            <Descriptor method={methodValue} />
-            <StatusSwitcher
-              statuses={statusCollection}
-              onChange={this.updateStatuses}
-            />
-            <button onClick={this.handleStart}>Run</button>
-            <PromiseCollection
-              ref={this.collectionRef}
-              promiseMethod={methodValue}
-              collection={buildCollection(
-                promiseDescriptor.collection,
-                statusCollection
-              )}
-              thenStatements={promiseDescriptor.thenStatements}
-              catchStatement={promiseDescriptor.catchStatement}
-              thenMethod={(r) =>
-                this.setState({
-                  consoleContent: promiseDescriptor.thenMethod(r)
-                })
-              }
-              catchMethod={(r) =>
-                this.setState({
-                  consoleContent: promiseDescriptor.catchMethod(r),
-                  consoleKind: 'error'
-                })
-              }
-            />
-            <ConsoleOutput kind={consoleKind} content={consoleContent} />
-          </>
-        )}
-      </>
+      <div className="playground">
+        <style jsx>{`
+          @media (min-width: 1000px) {
+            .playground {
+              display: flex;
+            }
+
+            .panel {
+              flex: 1 1 0;
+            }
+
+            .config-panel {
+              margin: 0 4em 0 0;
+            }
+          }
+
+          .playground--cta {
+            background-color: #4242ef;
+            border-radius: 3px;
+            border-width: 0;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            margin: 1em 0 0;
+            min-width: 7em;
+            padding: 1em;
+            text-transform: uppercase;
+          }
+
+          .playground--cta:hover {
+            background-color: #6262ef;
+          }
+
+          .playground--cta:active {
+            transform: scale(0.95);
+          }
+        `}</style>
+        <div className="panel config-panel">
+          {method && (
+            <>
+              <Descriptor method={method} />
+              <StatusSwitcher
+                statuses={statusCollection}
+                onChange={this.updateStatuses}
+              />
+              <button className="playground--cta" onClick={this.handleStart}>
+                Run
+              </button>
+            </>
+          )}
+        </div>
+        <div className="panel code-panel">
+          {method && (
+            <>
+              <PromiseCollection
+                ref={this.collectionRef}
+                promiseMethod={method}
+                collection={buildCollection(
+                  promiseDescriptor.collection,
+                  statusCollection
+                )}
+                thenStatements={promiseDescriptor.thenStatements}
+                catchStatement={promiseDescriptor.catchStatement}
+                thenMethod={(r) =>
+                  this.setState({
+                    consoleContent: promiseDescriptor.thenMethod(r),
+                    consoleKind: 'success'
+                  })
+                }
+                catchMethod={(r) =>
+                  this.setState({
+                    consoleContent: promiseDescriptor.catchMethod(r),
+                    consoleKind: 'error'
+                  })
+                }
+              />
+              <ConsoleOutput kind={consoleKind} content={consoleContent} />
+            </>
+          )}
+        </div>
+      </div>
     )
   }
 }
