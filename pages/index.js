@@ -70,14 +70,12 @@ export default () => {
       <h1>Promise combinators</h1>
       <p className="excerpt">
         Created by <a href="//jeremenichelli.io">Jeremias Menichelli</a>.
-        Explore how the upcoming, and already existing, Promise methods work.{' '}
-        <em>
-          Promise.allSettled is polyfilled with promise.allsettled package by{' '}
-          <a href="https://github.com/ljharb">Jordan Harband</a> and Promise.any
-          with promise-any by{' '}
-          <a href="https://github.com/m0ppers">Andreas Streichardt</a>
-        </em>
-        .
+        Explore how Promise methods work. Heavily inspired by{' '}
+        <a href="//github.com/sdras/array-explorer">
+          Sara Drasner's Array Explorer
+        </a>{' '}
+        and <a href="//v8.dev/features/promise-combinators">this post</a> from
+        the V8 team blog.
       </p>
       <PromiseSelector
         value={method}

@@ -23,12 +23,15 @@ class PromiseStatement extends Component {
 
   render() {
     const { label } = this.props
-    const { status } = this.state
 
     return (
       <code className="promise">
+        <style jsx>{`
+          .promise--label {
+            font-weight: bold;
+          }
+        `}</style>
         <span className="promise--label">{`  ${label}()`}</span>
-        <span className={`promise--status promise--status__${status}`} />
       </code>
     )
   }

@@ -6,8 +6,17 @@ const DescriptorContent = ({ method, children }) => (
       .method-name {
         color: #4242ef;
       }
+
+      .instructions {
+        color: #505060;
+      }
     `}</style>
-    <strong className="method-name">{method}</strong> 👉 {children}
+    <strong className="method-name">{method}</strong> 👉 {children}{' '}
+    <em className="instructions">
+      Click the promises below to change their results and then press&nbsp;
+      <strong>RUN</strong>
+    </em>
+    .
   </p>
 )
 
