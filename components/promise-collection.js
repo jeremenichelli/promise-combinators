@@ -25,30 +25,49 @@ class PromiseCollection extends Component {
     } = this.props
 
     return (
-      <>
-        <pre className="promise--collection">
-          <code>{`Promise.${promiseMethod}([\n`}</code>
-          {collection.map((s, i) => (
-            <React.Fragment key={i}>
-              <PromiseStatement
-                ref={this.promiseRefs[i]}
-                delay={s.delay}
-                result={s.result}
-                reason={s.reason}
-                resolution={s.resolution}
-                label={s.label}
-              />
-              {i !== collection.length - 1 && ',\n'}
-            </React.Fragment>
+      <pre className="promise--collection">
+        <style jsx>{`
+          .code-method,
+          .code-then,
+          .code-catch {
+            font-weight: bold;
+          }
+        `}</style>
+        <code>
+          {`Promise.`}
+          <span className="code-method">{promiseMethod}</span>
+          {`([\n`}
+        </code>
+        {collection.map((s, i) => (
+          <React.Fragment key={i}>
+            <PromiseStatement
+              ref={this.promiseRefs[i]}
+              delay={s.delay}
+              result={s.result}
+              reason={s.reason}
+              resolution={s.resolution}
+              label={s.label}
+            />
+            {i !== collection.length - 1 && ',\n'}
+          </React.Fragment>
+        ))}
+        <code>{`\n])`}</code>
+        {thenStatements &&
+          thenStatements.map((statement, i) => (
+            <code key={i}>
+              {`\n.then(`}
+              <span className="code-then">{statement}</span>
+              {`)`}
+            </code>
           ))}
-          <code>{`\n])`}</code>
-          {thenStatements &&
-            thenStatements.map((statement, i) => (
-              <code key={i}>{`\n.then(${statement})`}</code>
-            ))}
-          {catchStatement && <code>{`\n.catch(${catchStatement})`}</code>}
-        </pre>
-      </>
+        {catchStatement && (
+          <code>
+            {`\n.catch(`}
+            <span className="code-catch">{catchStatement}</span>
+            {`)`}
+          </code>
+        )}
+      </pre>
     )
   }
 }

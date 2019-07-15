@@ -12,7 +12,7 @@ const StatusSwitcher = ({ statuses, onChange }) => (
   <div className="status-switcher">
     <style jsx>{`
       .status-switcher--group {
-        margin: 0.5em 0 0;
+        margin: 0 0 0.5em;
       }
 
       .status-switcher--label {
@@ -52,14 +52,6 @@ const StatusSwitcher = ({ statuses, onChange }) => (
         color: #D50000;
       }
     `}</style>
-    <p>
-      <em>
-        Click the promises below to change their resolutions and test the
-        combinator. Each promise will resolve in a randomized time with the
-        selected result
-      </em>
-      .
-    </p>
     {statuses.map((s, i) => (
       <div className="status-switcher--group" key={i}>
         <label className="status-switcher--label">
