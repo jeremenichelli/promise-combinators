@@ -20,6 +20,6 @@ _Read more about the new promise combinators [in this article](//todo.article.i.
 
 ## Credits
 
-_I first heard about the upcoming combinators by [this tweet by Stefan Judis](//twitter.com/stefanjudis/status/1140535050230030336)._
-
-_Heavily inspired by [Sara Drasner's Array Explorer](//github.com/sdras/array-explorer), and [this post](https://v8.dev/features/promise-combinators) from the V8 team blog._
+ - I first heard about the upcoming combinators by [this tweet by Stefan Judis](//twitter.com/stefanjudis/status/1140535050230030336).
+ - Heavily inspired by [Sara Drasner's Array Explorer](//github.com/sdras/array-explorer), and [this post](https://v8.dev/features/promise-combinators) from the V8 team blog.
+ - Thanks [Mathias Bynens](//twitter.com/mathias) for the early feedback!
