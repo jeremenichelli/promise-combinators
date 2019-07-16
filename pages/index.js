@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Head from '../components/head'
 import Playground from '../components/playground'
 
 import config from '../config'
@@ -17,14 +18,16 @@ const options = Object.keys(config)
 export default () => {
   const [method, handleMethodChange] = useState('')
   return (
-    <div>
-      <style jsx>{`
-        .excerpt {
-          color: #505060;
-          max-width: 40em;
-        }
-      `}</style>
-      <style jsx global>{`
+    <>
+      <Head />
+      <div className="app">
+        <style jsx>{`
+          .excerpt {
+            color: #505060;
+            max-width: 40em;
+          }
+        `}</style>
+        <style jsx global>{`
       body {
         color: #010120;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -63,26 +66,27 @@ export default () => {
         padding: .75rem 1rem;
       }
     `}</style>
-      <GitHubCorner
-        href="//github.com/jeremenichelli/promise-combinators"
-        bannerColor="#4242ef"
-      />
-      <h1>Promise combinators</h1>
-      <p className="excerpt">
-        Created by <a href="//jeremenichelli.io">Jeremias Menichelli</a>.
-        Explore how Promise methods work. Heavily inspired by{' '}
-        <a href="//github.com/sdras/array-explorer">
-          Sara Drasner's Array Explorer
-        </a>{' '}
-        and <a href="//v8.dev/features/promise-combinators">this post</a> from
-        the V8 team blog.
-      </p>
-      <PromiseSelector
-        value={method}
-        onChange={handleMethodChange}
-        options={options}
-      />
-      <Playground method={method} />
-    </div>
+        <GitHubCorner
+          href="//github.com/jeremenichelli/promise-combinators"
+          bannerColor="#4242ef"
+        />
+        <h1>Promise combinators</h1>
+        <p className="excerpt">
+          Created by <a href="//jeremenichelli.io">Jeremias Menichelli</a>.
+          Explore how Promise methods work. Heavily inspired by{' '}
+          <a href="//github.com/sdras/array-explorer">
+            Sara Drasner's Array Explorer
+          </a>{' '}
+          and <a href="//v8.dev/features/promise-combinators">this post</a> from
+          the V8 team blog.
+        </p>
+        <PromiseSelector
+          value={method}
+          onChange={handleMethodChange}
+          options={options}
+        />
+        <Playground method={method} />
+      </div>
+    </>
   )
 }
