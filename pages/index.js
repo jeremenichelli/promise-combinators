@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Head from '../components/Head'
+import Head from '../components/head'
 import Playground from '../components/playground'
 
 import config from '../config'
