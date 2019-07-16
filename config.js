@@ -51,9 +51,9 @@ export default {
     ],
     thenStatements: [`winner => console.log(winner + ' got first!')`],
     catchStatement:
-      "reason => console.error(reason + ', the race is cancelled')",
+      'reason => console.error(`${reason}, the race is cancelled`)',
     thenMethod: (winner) => winner + ' got first!',
-    catchMethod: (reason) => reason + ', the race is cancelled'
+    catchMethod: (reason) => `${reason}, the race is cancelled`
   },
   allSettled: {
     collection: [
@@ -80,21 +80,21 @@ export default {
       `outcomes => {
   outcomes
     .filter(p => p.status === 'rejected')
-    .map(f => console.log('No ' + f.reason + ' were found'))
+    .map(f => console.log(\`No \${f.reason} were found\`))
   
   outcomes
-    .filter(p => p.status === 'rejected')
-    .map(f => console.log('We found ' + f.value))
+    .filter(p => p.status === 'fulfulled')
+    .map(f => console.log(\`We found \${f.value}\`))
 }`
     ],
     thenMethod: (outcomes) => {
       const rejected = outcomes
         .filter((p) => p.status === 'rejected')
-        .map((f) => 'No ' + f.reason + ' were found')
+        .map((f) => `No ${f.reason} were found`)
 
       const fulfilled = outcomes
         .filter((p) => p.status === 'fulfilled')
-        .map((f) => 'We found ' + f.value)
+        .map((f) => `We found ${f.value}`)
 
       return [...rejected, ...fulfilled]
     },
@@ -122,10 +122,11 @@ export default {
       }
     ],
     thenStatements: [
-      `firstMeal => console.log('We found ' + firstMeal + ' and stopped!')`
+      'firstMeal => console.log(`We found ${firstMeal} and stopped!`)'
     ],
-    catchStatement: `allMissing => console.log(\`We couldn't find any \` + allMissing)`,
-    thenMethod: (firstMeal) => 'We found ' + firstMeal + ' and stopped!',
-    catchMethod: (allMissing) => `We couldn't find any ` + allMissing
+    catchStatement:
+      "allMissing => console.log(`We couldn't find any ${allMissing}`)",
+    thenMethod: (firstMeal) => `We found ${firstMeal} and stopped!`,
+    catchMethod: (allMissing) => `We couldn't find any ${allMissing}`
   }
 }
