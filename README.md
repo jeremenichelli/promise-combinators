@@ -16,7 +16,7 @@ Hosted by [Netlify](//netlify.com) cause I have 99 problems in my life but deplo
 
 Initially `Promise` was released with `all` and `race`, but there's a proposal for two new folks, `allSettled` and `any`. I hope this little microsite helps you exploring and understanding them better.
 
-_Read more about the new promise combinators [in this article](//todo.article.i.wrote.for.css.tricks)._
+_Read more about the new promise combinators [in this article](//css-tricks.com/a-peek-at-new-methods-coming-to-promises/)._
 
 ## Credits
 
