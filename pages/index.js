@@ -75,7 +75,7 @@ export default () => {
           Created by <a href="//jeremenichelli.io">Jeremias Menichelli</a>.
           Explore how Promise methods work. Heavily inspired by{' '}
           <a href="//github.com/sdras/array-explorer">
-            Sara Drasner's Array Explorer
+            Sarah Drasner's Array Explorer
           </a>{' '}
           and <a href="//v8.dev/features/promise-combinators">this post</a> from
           the V8 team blog.
