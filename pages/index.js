@@ -80,6 +80,15 @@ export default () => {
           and <a href="//v8.dev/features/promise-combinators">this post</a> from
           the V8 team blog.
         </p>
+        <p>
+          <em>
+            Read more about the upcoming Promise combinators in{' '}
+            <a href="https://css-tricks.com/a-peek-at-new-methods-coming-to-promises/">
+              this article
+            </a>
+            .
+          </em>
+        </p>
         <PromiseSelector
           value={method}
           onChange={handleMethodChange}
